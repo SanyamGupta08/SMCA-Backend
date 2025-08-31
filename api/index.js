@@ -1,8 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const serverless = require("serverless-http"); // ✅ needed for Vercel
-const routes = require("../routes"); // update path
-const { FRONTEND_URL, NODE_ENV } = require("../config/server-config");
+const routes = require("../routes/index"); // update path
+const { PORT,FRONTEND_URL } = require("../config/server-config");
 
 const app = express();
 
@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
   res.send("🚀 Express server running...");
 });
 
-// Remove app.listen() entirely for Vercel
-// app.listen(PORT, ...) → only used for local dev
+app.listen(PORT, (req, res) => {
+    console.log(`sever started at port ${PORT}`)
+});
 
-module.exports = serverless(app);

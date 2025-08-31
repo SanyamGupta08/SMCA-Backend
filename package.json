@@ -2,8 +2,8 @@
   "name": "backend-socialmedia-content-analyzer",
   "version": "1.0.0",
   "scripts": {
-    "dev": "node src/index.js",
-    "start": "node src/index.js"
+    "dev": "node api/index.js",
+    "start": "node api/index.js"
   },
   "dependencies": {
     "@google-cloud/vision": "^5.3.3",
