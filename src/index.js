@@ -3,7 +3,7 @@ const cors = require("cors");
 const serverless = require("serverless-http"); // ✅ add this
 const routes = require("./routes");
 const { PORT, FRONTEND_URL, NODE_ENV } = require("./config/server-config");
-
+const { analyzePdf, analyzeImage } = require("./controller/index");
 const app = express();
 
 // Middleware
@@ -23,6 +23,8 @@ app.get("/", (req, res) => {
   res.send("🚀 Express server running...");
 });
 
+app.post("/analyze-pdf", analyzePdf);
+app.post("/analyze-image", analyzeImage);
 // Local development
 if (NODE_ENV !== "production") {
   app.listen(PORT, () => {

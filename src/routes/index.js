@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const v1Router=require("./v1/index")
+const { analyzePdf, analyzeImage } = require("../controller/index");
 
-router.use("/v1",v1Router)
+// Already mounted as /api in app.js
+router.post("/analyze-pdf", analyzePdf);
+router.post("/analyze-image", analyzeImage);
 
 module.exports = router;
